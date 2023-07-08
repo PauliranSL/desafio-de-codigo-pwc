@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;           
+        }
+  
+        #button:hover{
+            background-color: black;
+            color: white;
+            font-weight: bold;            
+        } 
+    </style>
+    <script>
+        function encontrarPalindromaMaisLonga() {          
+          var fraseOriginal = document.getElementById("frase").value;
+          
+          var palavras = fraseOriginal.split(" ");   
+          
+          var palindromaMaisLonga = "";   
+          
+          for (var i = 0; i < palavras.length; i++) {
+            var palavra = palavras[i];    
+            
+            if (palavra === palavra.split("").reverse().join("") && palavra.length > palindromaMaisLonga.length) {
+              palindromaMaisLonga = palavra;
+            }
+          }   
+          
+          document.getElementById("resultado").textContent = palindromaMaisLonga;
+        }
+      </script>
+</head>
+<body>
+    <h1>Encontrar Palíndroma Mais Longa</h1>
+  
+    <form autocomplete="off">
+      <label for="frase">Digite a frase:</label>
+      <input type="text" id="frase">
+      <button type="button" onclick="encontrarPalindromaMaisLonga()">Encontrar Palíndroma</button>
+    </form>
+  
+    <div id="resultado"></div>
+    
+</body>
+</html>

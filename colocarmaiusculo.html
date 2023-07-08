@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;           
+        }
+  
+        #button:hover{
+            background-color: black;
+            color: white;
+            font-weight: bold;            
+        }
+    </style>
+    <script>
+        function converterIniciaisMaiusculas() {          
+          var fraseOriginal = document.getElementById("frase").value;    
+          
+          var palavras = fraseOriginal.split(" ");   
+          
+          var fraseConvertida = "";    
+          
+          for (var i = 0; i < palavras.length; i++) {
+            var palavra = palavras[i];    
+            
+            var primeiraLetraMaiuscula = palavra.charAt(0).toUpperCase();    
+            
+            var palavraConvertida = primeiraLetraMaiuscula + palavra.slice(1).toLowerCase();    
+           
+            fraseConvertida += palavraConvertida + " ";         }
+    
+          
+          fraseConvertida = fraseConvertida.trim();   
+          
+          document.getElementById("resultado").textContent = fraseConvertida;
+        }
+      </script>
+</head>
+<body>
+    <h1>Converter Iniciais para Maiúsculas</h1>
+  
+  <form autocomplete="off">
+    <label for="frase">Digite a frase:</label>
+    <input type="text" id="frase">
+    <button type="button" onclick="converterIniciaisMaiusculas()">Converter para Iniciais Maiúsculas</button>
+  </form>
+
+  <div id="resultado"></div>
+</body>
+</html>

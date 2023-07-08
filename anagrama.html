@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;           
+        }
+  
+        #button:hover{
+            background-color: black;
+            color: white;
+            font-weight: bold;            
+        }
+    </style>
+    <script>
+        function verificarAnagramaPalindromo() {
+         
+          var fraseOriginal = document.getElementById("frase").value;    
+          
+          var fraseSemEspacos = fraseOriginal.replace(/\s/g, "");    
+          
+          var fraseLowerCase = fraseSemEspacos.toLowerCase();    
+          
+          var contadorLetras = {};
+          for (var i = 0; i < fraseLowerCase.length; i++) {
+            var letra = fraseLowerCase.charAt(i);
+            contadorLetras[letra] = (contadorLetras[letra] || 0) + 1;
+          }    
+          
+          var contadorImpares = 0;
+          for (var letra in contadorLetras) {
+            if (contadorLetras.hasOwnProperty(letra)) {
+              if (contadorLetras[letra] % 2 !== 0) {
+                contadorImpares++;
+              }
+            }
+          }    
+         
+          var resultado = contadorImpares <= 1 ? "Sim, é um anagrama de palíndromo!" : "Não é um anagrama de palíndromo.";
+          document.getElementById("resultado").textContent = resultado;
+        }
+      </script>
+</head>
+<body>
+    <h1>Verificar Anagrama de Palíndromo</h1>
+  
+    <form>
+      <label for="frase">Digite a frase:</label>
+      <input type="text" id="frase">
+      <button type="button" onclick="verificarAnagramaPalindromo()">Verificar Anagrama de Palíndromo</button>
+    </form>
+  
+    <div id="resultado"></div>
+</body>
+</html>
